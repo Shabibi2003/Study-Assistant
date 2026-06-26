@@ -219,21 +219,51 @@ st.markdown("""
     background: linear-gradient(135deg, #f5f7fb 0%, #eef2ff 100%);
 }
 
-/* Hide default Streamlit chrome a bit */
+/* Force readable text everywhere (overrides dark mode) */
+.stApp, .stApp p, .stApp label, .stApp span, .stApp div,
+.stMarkdown, .stMarkdown p, .stMarkdown li,
+h1, h2, h3, h4, h5, h6 {
+    color: #1e293b !important;
+}
+.stApp caption, .stCaption, small { color: #64748b !important; }
+
+/* Inputs — white background, dark text */
+.stTextInput input, .stNumberInput input, .stTextArea textarea,
+[data-baseweb="input"] input, [data-baseweb="base-input"] input {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid #e2e8f0 !important;
+}
+.stNumberInput [data-baseweb="input"],
+.stTextInput [data-baseweb="input"] {
+    background-color: #ffffff !important;
+}
+.stNumberInput button {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+}
+
+/* Slider readable on light bg */
+.stSlider [data-baseweb="slider"] { color: #6366f1 !important; }
+
+/* Alerts: ensure dark text */
+.stAlert, .stAlert p, .stAlert div { color: #1e293b !important; }
+
+/* Hide default Streamlit chrome */
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 
-/* Hero header */
+/* Hero header — keep white text on gradient */
+.hero, .hero * { color: white !important; }
+.hero h1 { color: white !important; margin: 0; font-size: 28px; font-weight: 700; }
+.hero p  { color: #eef2ff !important; margin: 6px 0 0 0; font-size: 14px; }
 .hero {
     background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
     padding: 28px 32px;
     border-radius: 18px;
-    color: white;
     box-shadow: 0 10px 30px rgba(99,102,241,0.25);
     margin-bottom: 18px;
 }
-.hero h1 { color: white; margin: 0; font-size: 28px; font-weight: 700; }
-.hero p  { color: #eef2ff; margin: 6px 0 0 0; font-size: 14px; }
 
 /* Generic card */
 .card {
@@ -349,7 +379,7 @@ if not st.session_state.logged_in:
         </div>
         """, unsafe_allow_html=True)
         st.write("")
-        name = st.text_input("👤 Enter your name to begin", placeholder="e.g. Adeel Umar")
+        name = st.text_input("👤 Enter your name to begin", placeholder="e.g. Aarav Sharma")
         if st.button("🚀 Start Learning", type="primary", use_container_width=True):
             if name.strip():
                 st.session_state.student_name = name.strip()
