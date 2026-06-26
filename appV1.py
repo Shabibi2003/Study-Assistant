@@ -379,7 +379,7 @@ if not st.session_state.logged_in:
         </div>
         """, unsafe_allow_html=True)
         st.write("")
-        name = st.text_input("👤 Enter your name to begin", placeholder="e.g. Aarav Sharma")
+        name = st.text_input("👤 Enter your name to begin", placeholder="e.g. Adeel Umar")
         if st.button("🚀 Start Learning", type="primary", use_container_width=True):
             if name.strip():
                 st.session_state.student_name = name.strip()
