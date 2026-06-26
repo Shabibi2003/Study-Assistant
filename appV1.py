@@ -204,6 +204,9 @@ footer { display: none !important; }
 [data-testid="stStatusWidget"] { display: none !important; }
 [data-testid="stDecoration"] { display: none !important; }
 [data-testid="stToolbar"] { display: none !important; }
+[data-testid="stToolbarActions"] { display: none !important; }
+.stDeployButton { display: none !important; }
+[data-testid="stAppDeployButton"] { display: none !important; }
 div[class*="viewerBadge"] { display: none !important; }
 section[data-testid="stSidebar"] > div:last-child { display: none !important; }
 
