@@ -306,14 +306,21 @@ footer {visibility: hidden;}
     box-shadow: 0 2px 6px rgba(15,23,42,0.04); color: #1f2937;
 }
 
-/* Tab spacing */
+/* Tabs */
 .stTabs [data-baseweb="tab-list"] { gap: 4px; }
 .stTabs [data-baseweb="tab"] {
     background: white; border-radius: 10px 10px 0 0;
-    padding: 10px 16px; font-weight: 600;
+    padding: 10px 18px; font-weight: 600;
+    color: #334155 !important;
+}
+.stTabs [data-baseweb="tab"] p {
+    color: #334155 !important; font-weight: 600;
 }
 .stTabs [aria-selected="true"] {
-    background: #6366f1 !important; color: white !important;
+    background: #6366f1 !important;
+}
+.stTabs [aria-selected="true"] p {
+    color: white !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -342,7 +349,7 @@ if not st.session_state.logged_in:
         </div>
         """, unsafe_allow_html=True)
         st.write("")
-        name = st.text_input("👤 Enter your name to begin", placeholder="e.g. Aarav Sharma")
+        name = st.text_input("👤 Enter your name to begin", placeholder="e.g. Adeel Umar")
         if st.button("🚀 Start Learning", type="primary", use_container_width=True):
             if name.strip():
                 st.session_state.student_name = name.strip()
